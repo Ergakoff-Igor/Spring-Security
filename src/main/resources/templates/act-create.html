@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание акта</title>
+</head>
+<body>
+<form action="#" th:action="@{/act-create}" th:object="${act}" method="post">
+    <label for="reportingPeriod">Месяц</label>
+    <input type="text" th:field="*{reportingPeriod}" id="reportingPeriod" placeholder="Месяц">
+    <label for="projectSection">Раздел проекта</label>
+    <input type="text" th:field="*{projectSection}" id="projectSection" placeholder="Раздел проекта">
+    <label for="price">Стоимость</label>
+    <input type="text" th:field="*{price}" id="price" placeholder="Стоимость">
+    <label for="status">Статус</label>
+    <input type="text" th:field="*{status}" id="status" placeholder="Статус">
+    <input type="submit" value="Создание акта">
+</form>
+</body>
+</html>

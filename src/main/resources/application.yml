@@ -1,0 +1,11 @@
+db:
+    deleteById: DELETE FROM actTable 
+        WHERE id=?
+    findAll: SELECT * FROM actTable
+    getOne: SELECT * FROM actTable 
+        WHERE id=?
+    save: INSERT INTO actTable (reportingPeriod,projectSection, price, status) 
+        VALUES (?, ?, ?, ?)
+    updateAct: UPDATE actTable 
+        SET reportingPeriod=?, projectSection=?, price=?, status=?
+        WHERE id=?

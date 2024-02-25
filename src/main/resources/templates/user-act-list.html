@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все Акты</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+<div th:switch="${acts}">
+    <h2 th:case="null">Акты отсутствуют!</h2>
+    <div th:case="*">
+        <h2>Акты</h2>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Месяц </th>
+                <th scope="col">Раздел проекта</th>
+                <th scope="col">Стоимость</th>
+                <th scope="col">Статус</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="act : ${acts}">
+                <td th:text="${act.id}"></td>
+                <td th:text="${act.reportingPeriod}"></td>
+                <td th:text="${act.projectSection}"></td>
+                <td th:text="${act.price}"></td>
+                <td th:text="${act.status}"></td>
+                <td><a th:href="@{act-update/{id}(id=${act.id})}"><input type="submit" value="Изменить акт"></a></td>
+                <td><a th:href="@{act-delete/{id}(id=${act.id})}"><input type="submit" value="Удалить акт"></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/act-create"><input type="submit" value="Создание акта"></a></p>
+    <form th:method="POST" th:action="@{/logout}">
+        <button class="btn btn-danger mt-3">Выйти</button>
+    </form>
+<!--    <p><a href="/logout"><input type="submit" value="Выход"></a></p>-->
+</div>
+</body>

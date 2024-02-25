@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Изменение Акта</title>
+</head>
+<body>
+<form action="#" th:action="@{/act-update}" th:object="${act}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="reportingPeriod">Месяц</label>
+    <input type="text" th:field="*{reportingPeriod}" id="reportingPeriod" placeholder="Месяц">
+    <br/>
+    <label for="projectSection">Раздел проекта</label>
+    <input type="text" th:field="*{projectSection}" id="projectSection" placeholder="Раздел проекта">
+    <br/>
+    <label for="price">Стоимость</label>
+    <input type="text" th:field="*{price}" id="price" placeholder="Стоимость">
+    <br/>
+    <label for="status">Статус</label>
+    <input type="text" th:field="*{status}" id="status" placeholder="Статус">
+    <br/>
+    <input type="submit" value="Изменить акт">
+</form>
+</body>
+</html>
